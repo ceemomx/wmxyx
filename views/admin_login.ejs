@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>未解之谜</title>
+    <link rel='stylesheet' href='/stylesheets/style.css'/>
+    <script src="../javascripts/jquery.js"></script>
+</head>
+<body>
+    <input type="text" id="name">
+    <input type="password" id="password">
+    <button id="login">登录</button>
+</body>
+<script>
+    $(function(){
+        $('#login').click(function(){
+            $.ajax({
+                url:'/admin/login',
+                type:'POST',
+                data:{name:$('#name').val(),password:$('#password').val()},
+                success:function(data){
+                    if(data.status == '1'){
+                        location.assign('/admin');
+                    }else{
+                        alert('login failed')
+                    }
+                }
+            })
+        });
+    })
+</script>
+</html>
