@@ -7,3 +7,4 @@ test
 config.js
 *.swp
 *.swo
+public/upload
