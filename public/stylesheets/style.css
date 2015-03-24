@@ -3,58 +3,119 @@
     margin: 0;
     list-style: none;
 }
-a{
+
+a {
     text-decoration: none;
     cursor: pointer;
 }
-a:visited{color:inherit;}
+
+a:visited {
+    color: inherit;
+}
+
 body {
     font: 14px "Lucida Grande", Helvetica, Arial, sans-serif;
-    background:#eee;
-    color:#333;
+    background: #eee;
+    color: #333;
 }
 
 .header {
     background: #663366;
-    color:#fff;
+    color: #fff;
 }
-.header .header-content{
-    width:960px;
-    margin:0 auto;
+
+.header .header-content {
+    width: 960px;
+    margin: 0 auto;
     height: 55px;
     line-height: 55px;
 }
 
-.header .header-content h1{
-    text-shadow:1px 1px 2px #333;
+.header .header-content h1 {
+    text-shadow: 1px 1px 2px #333;
 }
 
 .nav {
-    background:#ccc;
+    background: #ccc;
+    box-shadow: 0 1px 1px rgba(150, 150, 150, 0.5);
 }
+
 .nav .nav-content {
-    width:960px;
-    margin:0 auto;
-    height:30px;
+    width: 960px;
+    margin: 0 auto;
+    height: 30px;
     line-height: 30px;
 }
 
 .nav .nav-content ul {
-    overflow:hidden;
+    overflow: hidden;
 }
-.nav .nav-content ul li{
-    float:left;
-    display:block;
-    height:30px;
+
+.nav .nav-content ul li {
+    float: left;
+    display: block;
+    height: 30px;
     line-height: 30px;
-    margin:0 20px 0 0;
+    margin: 0 20px 0 0;
 }
-.nav .nav-content ul li a{
-    font-size:16px;
+
+.nav .nav-content ul li a {
+    font-size: 16px;
 }
-.nav .nav-content ul li a:hover,.nav .nav-content ul li a.selected{
-    color:#CC0033;
-    text-shadow:1px 1px 1px #fff;
+
+.nav .nav-content ul li a:hover, .nav .nav-content ul li a.selected {
+    color: #CC0033;
+    text-shadow: 1px 1px 1px #fff;
 }
-.body {padding-top:30px;}
-.body .body-content{margin:0 auto;width:960px;}
+
+.body {
+    padding-top: 30px;
+}
+
+.body .body-content {
+    margin: 0 auto;
+    width: 960px;
+}
+
+.body .body-content-list {
+    width: 740px;
+}
+
+.body .body-content ul li {
+    height: 150px;
+    margin-bottom: 10px;
+    border-bottom: 1px solid #ccc;
+}
+
+.body .body-content ul li img {
+    width: 200px;
+    height: 140px;
+    float: left;
+}
+
+.body .body-content ul li img:hover {
+    position: relative;
+    left: -2px;
+    top: -2px;
+    border: 2px solid #663366;
+}
+
+.body .body-content .body-content-list .body-content-list-right {
+    width: 525px;
+    margin-left: 215px;
+    height: 140px;
+}
+
+.body .body-content .body-content-list .body-content-list-right a:hover {
+    color: #CC0033;
+    text-shadow: 1px 1px 1px #fff;
+}
+
+.body .body-content .body-content-list .body-content-list-right h3 {
+    padding-bottom: 15px;
+}
+
+.body .body-content .body-content-list .body-content-list-right p {
+    color: #555;
+    line-height: 25px;
+}

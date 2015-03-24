@@ -1,34 +1,24 @@
 <!DOCTYPE html>
 <html>
 <head>
-    <title><%= title %></title>
+    <title>未解之谜</title>
     <link rel='stylesheet' href='/stylesheets/style.css'/>
 </head>
 <body>
-<div class="header">
-    <div class="header-content">
-        <h1><a href="/">世界未解之谜</a></h1>
-    </div>
-</div>
-<div class="nav">
-    <div class="nav-content">
-        <ul>
-            <li><a class="selected">首页</a></li>
-            <li><a>世界未解之谜</a></li>
-            <li><a>中国未解之谜</a></li>
-        </ul>
-    </div>
-</div>
+<% include head.ejs %>
 <div class="body">
     <div class="body-content">
         <div class="body-content-list">
             <ul>
                 <li>
-                    <img>
-                    <div>
-                        <h5>测试用1</h5>
-                        <p>不成功之谜，简单来说：摇摆！这是绝大多数人不成功的根本原因，当然还有其他原因，许多条件加起来才成就一个人，这里只谈我认为最重要的一个。摇摆！不是说跳舞的摇摆！</p>
-                        <div>1月3日更新</div>
+                    <a href="/info/1001">
+                        <img src="./images/thum-7ec41355150537.jpg">
+                    </a>
+                    <div class="body-content-list-right">
+                        <a>
+                            <h3>测试用1</h3>
+                        </a>
+                            <p>不成功之谜，简单来说：摇摆！这是绝大多数人不成功的根本原因，当然还有其他原因，许多条件加起来才成就一个人，这里只谈我认为最重要的一个。摇摆！不是说跳舞的摇摆！</p>
                     </div>
                 </li>
             </ul>

@@ -1,8 +1,7 @@
+var indexPageRouter = require('../lib/main/router');
 
 module.exports = function(app){
 
-    app.get('/', function(req, res){
-        res.render('../views/index',{title:'nimei'});
-    })
+    app.use('/',indexPageRouter);
 
 };
