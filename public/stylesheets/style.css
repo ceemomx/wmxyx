@@ -88,6 +88,7 @@ body {
 .body .body-content-main {
     width: 740px;
     margin-top: 20px;
+    line-height: 30px;
 }
 
 .body .body-content-list {
