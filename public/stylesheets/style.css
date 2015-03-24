@@ -2,18 +2,13 @@
     padding: 0;
     margin: 0;
     list-style: none;
-    transition:all 0.3s linear;
 }
 
 a {
     text-decoration: none;
     cursor: pointer;
+    transition:all 0.3s linear;
 }
-
-a:visited {
-    color: inherit;
-}
-
 body {
     font: 14px "Lucida Grande", Helvetica, Arial, sans-serif;
     background: #eee;
