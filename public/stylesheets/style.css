@@ -61,6 +61,7 @@ body {
 
 .nav .nav-content ul li a {
     font-size: 16px;
+    color:#333;
 }
 
 .nav .nav-content ul li a:hover, .nav .nav-content ul li a.selected {
@@ -75,6 +76,11 @@ body {
 .body .body-content {
     margin: 0 auto;
     width: 960px;
+}
+.body .body-content-title {
+    text-align: center;
+    padding-bottom:25px;
+    border-bottom:1px solid #ccc;
 }
 
 .body .body-content-list {
