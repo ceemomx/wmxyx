@@ -83,6 +83,10 @@ body {
     border-bottom:1px solid #ccc;
 }
 
+.body .body-content-main {
+    margin-top:20px;
+}
+
 .body .body-content-list {
     width: 740px;
 }
