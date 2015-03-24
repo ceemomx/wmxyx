@@ -78,12 +78,14 @@ body {
     width: 960px;
 }
 .body .body-content-title {
+    width:740px;
     text-align: center;
     padding-bottom:25px;
     border-bottom:1px solid #ccc;
 }
 
 .body .body-content-main {
+    width:740px;
     margin-top:20px;
 }
 
