@@ -11,17 +11,7 @@
     <div class="body-content">
         <div class="body-content-list">
             <ul id="list_start">
-                <!--<li>-->
-                    <!--<a href="/info/1001">-->
-                        <!--<img src="./images/thum-7ec41355150537.jpg">-->
-                    <!--</a>-->
-                    <!--<div class="body-content-list-right">-->
-                        <!--<a>-->
-                            <!--<h3>测试用1</h3>-->
-                        <!--</a>-->
-                            <!--<p>不成功之谜，简单来说：摇摆！这是绝大多数人不成功的根本原因，当然还有其他原因，许多条件加起来才成就一个人，这里只谈我认为最重要的一个。摇摆！不是说跳舞的摇摆！</p>-->
-                    <!--</div>-->
-                <!--</li>-->
+
             </ul>
         </div>
     </div>
@@ -44,11 +34,11 @@
             $('#list_start').html('');
             data.list.forEach(function(item){
                 $('#list_start').append('<li>\
-                    <a href="/info/'+item._id+'">\
+                    <a href="/article/info/'+item._id+'">\
                     <img src="/upload/images/'+item.cover+'.jpg">\
                     </a>\
             <div class="body-content-list-right">\
-                    <a>\
+                    <a href="/article/info/'+item._id+'">\
                     <h3>'+item.title+'</h3>\
             </a>\
             <p>'+item.summary+'</p>\
