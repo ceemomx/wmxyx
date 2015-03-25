@@ -10,3 +10,7 @@ a{cursor:pointer}
 .admin_table tr{border:1px solid #999}
 .admin_table th,.admin_table td{border:1px solid #999}
 .admin_table td a{display:inline-block;margin:0 8px;}
+#title{height:25px;line-height: 25px;width:200px;font-size:16px;}
+#summary{height:75px;width:400px;line-height: 25px;}
+.line{margin:5px;}
+button{width:50px;height:20px;line-height: 20px;}

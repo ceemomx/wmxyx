@@ -10,12 +10,20 @@
 
 </head>
 <body>
-<input type="text" placeholder="标题" id="title" value="<%- title %>">
+<div class="line">
+    <input type="text" placeholder="标题" id="title" value="<%- title %>">
+</div>
+<div class="line">
 <textarea placeholder="导读" id="summary"><%- summary%></textarea>
-<select id="type">
-    <option value="all">世界</option>
-    <option value="china">中国</option>
-</select>
+</div>
+<div class="line">
+    <select id="type">
+        <option value="all">世界</option>
+        <option value="china">中国</option>
+    </select>
+</div>
+<div class="line"></div>
+<div class="line"></div>
 <% if(release){%>
 <input type="checkbox" id="release" <%= release == 1? 'checked="checked"' :''%>/>是否显示
 <%}else{%>
