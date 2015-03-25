@@ -1,18 +1,46 @@
 <!DOCTYPE html>
 <html>
 <head>
-    <title><%= title %></title>
-    <link rel='stylesheet' href='/stylesheets/style.css' />
+    <title>未解之谜</title>
+    <link rel='stylesheet' href='/stylesheets/style.css'/>
+    <script src="./javascripts/jquery.js" type="text/javascript"></script>
+    <script src="./javascripts/common.js" type="text/javascript"></script>
 </head>
 <body>
-<div class="header">
-
-</div>
+<% include head.ejs %>
 <div class="body">
+    <div class="body-content">
+        <div class="body-content-list">
+            <ul id="list_start">
 
+            </ul>
+        </div>
+    </div>
 </div>
 <div class="footer">
 
 </div>
 </body>
+<script>
+    $(function(){
+        var type = '<%- type %>';
+        getArticle(type,0,20,function(data){
+            $('#list_start').html('');
+            data.list.forEach(function(item){
+                $('#list_start').append('<li>\
+                    <a href="/article/info/'+item._id+'">\
+                    <img src="/upload/images/'+item.cover+'.jpg">\
+                    </a>\
+            <div class="body-content-list-right">\
+                    <a href="/article/info/'+item._id+'">\
+                    <h3>'+item.title+'</h3>\
+            </a>\
+            <p>'+item.summary+'</p>\
+            </div>\
+            </li>')
+            });
+        })
+    })
+</script>
 </html>
+
