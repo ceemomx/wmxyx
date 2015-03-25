@@ -2,49 +2,28 @@
 <html>
 <head>
     <title>未解之谜</title>
-    <link rel='stylesheet' href='/stylesheets/style.css'/>
+    <link rel='stylesheet' href='/stylesheets/admin.css'/>
     <script src="../javascripts/jquery.js"></script>
-    <script type="text/javascript" charset="utf-8" src="../ueditor/ueditor.config.js"></script>
-    <script type="text/javascript" charset="utf-8" src="../ueditor/ueditor.all.min.js"></script>
-    <script type="text/javascript" charset="utf-8" src="../ueditor/lang/zh-cn/zh-cn.js"></script>
-
 </head>
 <body>
-<input type="text" placeholder="标题" id="title">
-<textarea placeholder="导读" id="summary"></textarea>
-<select id="type">
-    <option value="all">世界</option>
-    <option value="china">中国</option>
-</select>
-<script type="text/plain" id="editor" style="width:1000px;height:240px;">
-</script>
-<button id="submit">提交</button>
+<div class="admin_left_menu">
+    <ul>
+        <li><a data-src="/admin/list">列表</a></li>
+        <li><a data-src="/admin/add">添加</a></li>
+    </ul>
+</div>
+<div class="admin_right">
+    <iframe src="/admin/list" >
+
+    </iframe>
+</div>
 </body>
-<script type="text/javascript">
-
-    //实例化编辑器
-    //建议使用工厂方法getEditor创建和引用编辑器实例，如果在某个闭包下引用该编辑器，直接调用UE.getEditor('editor')就能拿到相关的实例
-    var ue = UE.getEditor('editor');
-    $(function () {
-        $('#submit').click(function () {
-            console.log(ue.getContent());
-            console.log((ue.getContent()).match(/images(.*?\.jpg)/g).join('').split('.')[0].split('/')[1]);
-            $.ajax({
-                url: '/article/submit',
-                type: 'post',
-                data: {
-                    title: $('#title').val(),
-                    main: ue.getContent(),
-                    type:$('#type').val(),
-                    cover: (ue.getContent()).match(/images(.*?\.jpg)/g).join('').split('.')[0].split('/')[1],
-                    summary: $('#summary').val()
-                },
-                success: function (data) {
-                    alert(data);
-                }
-            })
+<script>
+    $(function(){
+        $('.admin_left_menu a').click(function(){
+            var src = $(this).attr('data-src');
+            $('.admin_right iframe').attr('src',src);
         })
-    });
-
+    })
 </script>
 </html>

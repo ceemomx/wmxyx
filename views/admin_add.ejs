@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>未解之谜</title>
+    <link rel='stylesheet' href='/stylesheets/admin.css'/>
+    <script src="../javascripts/jquery.js"></script>
+    <script type="text/javascript" charset="utf-8" src="../ueditor/ueditor.config.js"></script>
+    <script type="text/javascript" charset="utf-8" src="../ueditor/ueditor.all.min.js"></script>
+    <script type="text/javascript" charset="utf-8" src="../ueditor/lang/zh-cn/zh-cn.js"></script>
+
+</head>
+<body>
+<input type="text" placeholder="标题" id="title">
+<textarea placeholder="导读" id="summary"></textarea>
+<select id="type">
+    <option value="all">世界</option>
+    <option value="china">中国</option>
+</select>
+<input type="checkbox" id="release"/>是否显示
+<script type="text/plain" id="editor" style="width:1000px;height:240px;">
+</script>
+<button id="submit">提交</button>
+</body>
+<script type="text/javascript">
+
+    var ue = UE.getEditor('editor');
+    $(function () {
+        $('#submit').click(function () {
+            $(this).attr('disabled','disabled');
+            console.log(ue.getContent());
+            console.log((ue.getContent()).match(/images(.*?\.jpg)/g).join('').split('.')[0].split('/')[1]);
+            $.ajax({
+                url: '/article/submit',
+                type: 'post',
+                data: {
+                    title: $('#title').val(),
+                    main: ue.getContent(),
+                    type: $('#type').val(),
+                    cover: (ue.getContent()).match(/images(.*?\.jpg)/g).join('').split('.')[0].split('/')[1],
+                    summary: $('#summary').val(),
+                    release: $('#realease').is(':checked') ? 1 : 0
+                },
+                success: function (data) {
+                    alert(data);
+                    $('#submit').removeAttr('disabled');
+                }
+            })
+        })
+    });
+
+</script>
+</html>

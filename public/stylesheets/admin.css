@@ -1,0 +1,12 @@
+*{margin:0;padding:0;list-style: none}
+html,body{width:100%;height:100%}
+body{background:#eee;color:#333;}
+a{cursor:pointer}
+.admin_left_menu{width:150px;padding:15px;position:fixed;left:0;top:0;border-right:1px solid #ccc;height:100%;}
+.admin_left_menu li a{display:block;width:150px;height:30px;line-height: 30px;border-bottom:1px solid #ccc;}
+.admin_right{margin-left:180px;height:100%;padding-top:15px;}
+.admin_right iframe{height:100%;width:100%;border:0}
+.admin_table{width:100%;text-align: center;border-collapse:collapse}
+.admin_table tr{border:1px solid #999}
+.admin_table th,.admin_table td{border:1px solid #999}
+.admin_table td a{display:inline-block;margin:0 8px;}
