@@ -23,7 +23,7 @@
 </body>
 <script>
     $(function(){
-        getArticle('all',0,20,function(data){
+        getArticle('',0,20,function(data){
             $('#list_start').html('');
             data.list.forEach(function(item){
                 $('#list_start').append('<li>\
