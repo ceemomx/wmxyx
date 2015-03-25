@@ -17,7 +17,7 @@
     <option value="china">中国</option>
 </select>
 <% if(release){%>
-<input type="checkbox" id="release" <%= release =='1'? 'checked="checked"' :''%>/>是否显示
+<input type="checkbox" id="release" <%= release == 1? 'checked="checked"' :''%>/>是否显示
 <%}else{%>
 <input type="checkbox" id="release" />是否显示
 <%}%>
@@ -43,7 +43,7 @@
                     type: $('#type').val(),
                     cover: (ue.getContent()).match(/images(.*?\.jpg)/g).join('').split('.')[0].split('/')[1],
                     summary: $('#summary').val(),
-                    release: $('#realease').is(':checked') ? 1 : 0
+                    release: $('#release').is(':checked') ? 1 : 0
                 },
                 success: function (data) {
                     alert(data);
