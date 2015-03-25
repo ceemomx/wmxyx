@@ -6,41 +6,51 @@
     <script src="../javascripts/jquery.js"></script>
 </head>
 <body>
-    <table class="admin_table">
-        <thead>
-            <tr>
-                <th>id</th>
-                <th>标题</th>
-                <th>添加时间</th>
-                <th>操作</th>
-            </tr>
-        </thead>
-        <tbody id="table_list">
-            <tr>
-                <td>aaaaaa</td>
-                <td>古树灯谜</td>
-                <td>201503250700</td>
-                <td><a>修改</a><a>预览</a><a>删除</a></td>
-            </tr>
-        </tbody>
-    </table>
+<table class="admin_table">
+    <thead>
+    <tr>
+        <th>id</th>
+        <th>标题</th>
+        <th>添加时间</th>
+        <th>操作</th>
+    </tr>
+    </thead>
+    <tbody id="table_list">
+    <tr>
+        <td>aaaaaa</td>
+        <td>古树灯谜</td>
+        <td>201503250700</td>
+        <td><a>修改</a><a>预览</a><a>删除</a></td>
+    </tr>
+    </tbody>
+</table>
 </body>
 <script type="text/javascript">
-    $(function(){
+    $(function () {
         $.ajax({
-            url:'/admin/list',
-            type:'post',
-            success:function(data){
+            url: '/admin/list',
+            type: 'post',
+            success: function (data) {
                 $('#table_list').html('');
-                data.list.forEach(function(item){
+                data.list.forEach(function (item) {
                     $('#table_list').append(' <tr>\
-                            <td>'+item._id+'</td>\
-                    <td>'+item.title+'</td>\
-                    <td>'+(new Date(item.created)).getFullYear()+'-'+((new Date(item.created)).getMonth()+1)+'-'+(new Date(item.created)).getDate()+' '+(new Date(item.created)).getHours()+':'+(new Date(item.created).getMinutes())+'</td>\
-                    <td><a href="/admin/'+item._id+'/edit" target="_blank">修改</a><a href="/article/info/'+item._id+'" target="_blank">预览</a><a data-meta="'+item._id+'" class="delete">删除</a></td>\
+                            <td>' + item._id + '</td>\
+                    <td>' + item.title + '</td>\
+                    <td>' + (new Date(item.created)).getFullYear() + '-' + ((new Date(item.created)).getMonth() + 1) + '-' + (new Date(item.created)).getDate() + ' ' + (new Date(item.created)).getHours() + ':' + (new Date(item.created).getMinutes()) + '</td>\
+                    <td><a href="/admin/' + item._id + '/edit" target="_blank">修改</a><a href="/article/info/' + item._id + '" target="_blank">预览</a><a data-meta="' + item._id + '" class="delete">删除</a></td>\
                     </tr>')
                 })
             }
+        });
+        $('tbody').on('click', '.delete', function () {
+            var id = $(this).attr('data-meta');
+            $.ajax({
+                url: '/admin/' + id + '/delete'
+                type: 'post',
+                success: function (data) {
+                    alert(data.status);
+                }
+            })
         })
     })
 </script>
