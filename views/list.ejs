@@ -27,7 +27,7 @@
 <script>
     $(function(){
         var type = '<%- type %>';
-        getArticle(type,0,20,function(data){
+        getArticle(type,0,8,function(data){
             $('#list_start').html('');
             data.list.forEach(function(item){
                 $('#list_start').append('<li>\
