@@ -45,7 +45,7 @@
         $('tbody').on('click', '.delete', function () {
             var id = $(this).attr('data-meta');
             $.ajax({
-                url: '/admin/' + id + '/delete'
+                url: '/admin/' + id + '/delete',
                 type: 'post',
                 success: function (data) {
                     alert(data.status);
