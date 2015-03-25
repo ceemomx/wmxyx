@@ -34,11 +34,11 @@
                 $('#list_start').html('');
                 data.list.forEach(function (item) {
                     $('#list_start').append('<li>\
-                    <a href="/article/info/' + item._id + '">\
+                    <a href="/article/info/' + item._id + '" target="_blank">\
                     <img src="/upload/images/' + item.cover + '.jpg">\
                     </a>\
             <div class="body-content-list-right">\
-                    <a href="/article/info/' + item._id + '">\
+                    <a href="/article/info/' + item._id + '" target="_blank">\
                     <h3>' + item.title + '</h3>\
             </a>\
             <p>' + item.summary + '</p>\
