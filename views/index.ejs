@@ -5,15 +5,24 @@
     <link rel='stylesheet' href='/stylesheets/style.css'/>
     <script src="./javascripts/jquery.js" type="text/javascript"></script>
     <script src="./javascripts/common.js" type="text/javascript"></script>
+    <% include static.ejs %>
 </head>
 <body>
 <% include head.ejs %>
 <div class="body">
     <div class="body-content">
         <div class="body-content-list">
-            <ul id="list_start">
+            <ul class="list-content" id="list_start">
 
             </ul>
+        </div>
+        <div class="body-content-pagination">
+            <!--<a>上一页</a>-->
+            <!--<a>1</a>-->
+            <!--<a>2</a>-->
+            <!--<a>3</a>-->
+            <!--<a>4</a>-->
+            <!--<a>下一页</a>-->
         </div>
     </div>
 </div>
@@ -24,10 +33,12 @@
 <% include foot.ejs %>
 <script>
     $(function(){
-        getArticle('',0,20,function(data){
-            $('#list_start').html('');
-            data.list.forEach(function(item){
-                $('#list_start').append('<li>\
+        function getIndexArticle(offset){
+            getArticle('',offset,20,function(data){
+                pagination(data.meta,$('.body-content-pagination'));
+                $('#list_start').html('');
+                data.list.forEach(function(item){
+                    $('#list_start').append('<li>\
                     <a href="/article/info/'+item._id+'">\
                     <img src="/upload/images/'+item.cover+'.jpg">\
                     </a>\
@@ -38,8 +49,20 @@
             <p>'+item.summary+'</p>\
             </div>\
             </li>')
+                });
             });
+        }
+        getIndexArticle(0);
+        $('.body-content-pagination a').click(function(){
+            var num = $(this).attr('data-num');
+            var current = $('.body-content-pagination a.current').attr('data-num');
+            if(num == 'prev'){
+                getIndexArticle( (current/20) - 1);
+            }else if(num == 'next'){
+                getIndexArticle( (current/20) + 1);
+            }else{
 
+            }
         })
     })
 </script>

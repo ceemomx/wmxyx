@@ -7,8 +7,9 @@
 a {
     text-decoration: none;
     cursor: pointer;
-    color:inherit;
+    color: inherit;
 }
+
 body {
     font: 14px "Lucida Grande", Helvetica, Arial, sans-serif;
     background: #eee;
@@ -95,26 +96,27 @@ body {
     width: 740px;
 }
 
-.body .body-content ul li {
+.body .body-content ul.list-content li {
     height: 150px;
     margin-bottom: 10px;
     border-bottom: 1px solid #ccc;
 }
 
-.body .body-content ul li img {
+.body .body-content ul.list-content li img {
     width: 200px;
     height: 140px;
     float: left;
 }
 
-.body .body-content ul li img:hover {
+.body .body-content ul.list-content li img:hover {
     position: relative;
     left: -2px;
     top: -2px;
     border: 2px solid #663366;
 }
-.body .body-content ul li a:visited{
-    color:#333;
+
+.body .body-content ul.list-content li a:visited {
+    color: #333;
 }
 
 .body .body-content .body-content-list .body-content-list-right {
@@ -137,4 +139,32 @@ body {
     line-height: 25px;
 }
 
-.footer{height:100px;}
+.body .body-content .body-content-pagination {
+    margin-top: 20px;
+    width:740px;
+    text-align: center;
+}
+
+.body .body-content .body-content-pagination a {
+    min-width: 20px;
+    height: 20px;
+    line-height: 20px;
+    padding: 0 10px;
+    text-align: center;
+    border: 1px solid #ccc;
+    color: #777;
+}
+.body .body-content .body-content-pagination a.current{
+    color:#aaa;
+    border:1px solid #eee;
+}
+
+.body .body-content .body-content-pagination a:hover {
+    color: #000;
+    box-shadow: 0 1px 2px rgba(150, 150, 150, 0.5);
+    border:1px solid #999;
+}
+
+.footer {
+    height: 100px;
+}
