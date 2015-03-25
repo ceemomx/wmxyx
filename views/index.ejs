@@ -27,36 +27,37 @@
 </body>
 <% include foot.ejs %>
 <script>
-    $(function(){
-        function getIndexArticle(offset){
-            getArticle('',offset,8,function(data){
-                pagination(data.meta,$('.body-content-pagination'));
+    $(function () {
+        function getIndexArticle(offset) {
+            getArticle('', offset, 8, function (data) {
+                pagination(data.meta, $('.body-content-pagination'));
                 $('#list_start').html('');
-                data.list.forEach(function(item){
+                data.list.forEach(function (item) {
                     $('#list_start').append('<li>\
-                    <a href="/article/info/'+item._id+'">\
-                    <img src="/upload/images/'+item.cover+'.jpg">\
+                    <a href="/article/info/' + item._id + '">\
+                    <img src="/upload/images/' + item.cover + '.jpg">\
                     </a>\
             <div class="body-content-list-right">\
-                    <a href="/article/info/'+item._id+'">\
-                    <h3>'+item.title+'</h3>\
+                    <a href="/article/info/' + item._id + '">\
+                    <h3>' + item.title + '</h3>\
             </a>\
-            <p>'+item.summary+'</p>\
+            <p>' + item.summary + '</p>\
             </div>\
             </li>')
                 });
             });
         }
+
         getIndexArticle(0);
-        $('.body-content-pagination').on('click','a',function(){
+        $('.body-content-pagination').on('click', 'a', function () {
             var num = $(this).attr('data-num');
             var current = $('.body-content-pagination a.current').attr('data-num');
-            if(num == 'prev'){
-                getIndexArticle( (current*8) - 1);
-            }else if(num == 'next'){
-                getIndexArticle( (current*8) + 1);
-            }else{
-                getIndexArticle(num*8)
+            if (num == 'prev') {
+                getIndexArticle((current - 2) * 8);
+            } else if (num == 'next') {
+                getIndexArticle(current * 8);
+            } else {
+                getIndexArticle((num-1) * 8)
             }
         })
     })

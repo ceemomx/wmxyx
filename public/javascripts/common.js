@@ -21,7 +21,7 @@ function pagination(meta, doc) {
             start = current - 4;
         }
         if (current + 4 > total) {
-            end = total - current;
+            end = total ;
         } else {
             end = current + 4;
         }
