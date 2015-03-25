@@ -153,6 +153,7 @@ body {
     text-align: center;
     border: 1px solid #ccc;
     color: #777;
+    margin:0 2px;
 }
 .body .body-content .body-content-pagination a.current{
     color:#aaa;

@@ -16,7 +16,9 @@
 
             </ul>
         </div>
+        <div class="body-content-pagination">
 
+        </div>
     </div>
 </div>
 <div class="footer">
@@ -26,11 +28,13 @@
 <% include foot.ejs %>
 <script>
     $(function(){
-        var type = '<%- type %>';
-        getArticle(type,0,8,function(data){
-            $('#list_start').html('');
-            data.list.forEach(function(item){
-                $('#list_start').append('<li>\
+        function getArticleList(offset){
+            var type = '<%- type %>';
+            getArticle(type,offset,8,function(data){
+                pagination(data.meta,$('.body-content-pagination'));
+                $('#list_start').html('');
+                data.list.forEach(function(item){
+                    $('#list_start').append('<li>\
                     <a href="/article/info/'+item._id+'">\
                     <img src="/upload/images/'+item.cover+'.jpg">\
                     </a>\
@@ -41,7 +45,20 @@
             <p>'+item.summary+'</p>\
             </div>\
             </li>')
-            });
+                });
+            })
+        };
+        getArticleList(0);
+        $('.body-content-pagination').on('click','a',function(){
+            var num = $(this).attr('data-num');
+            var current = $('.body-content-pagination a.current').attr('data-num');
+            if(num == 'prev'){
+                getArticleList( (current*8) - 1);
+            }else if(num == 'next'){
+                getArticleList( (current*8) + 1);
+            }else{
+                getArticleList(num*8)
+            }
         })
     })
 </script>
