@@ -16,7 +16,7 @@
     <option value="all">世界</option>
     <option value="china">中国</option>
 </select>
-<input type="checkbox" id="release" <%= release =='1'? 'checked="checked"' :''%>/>是否显示
+<input type="checkbox" id="release" <%= release && release =='1'? 'checked="checked"' :''%>/>是否显示
 <script type="text/plain" id="editor" style="width:1000px;height:240px;">
     <%- main %>
 </script>
