@@ -57,11 +57,11 @@
             var num = $(this).attr('data-num');
             var current = $('.body-content-pagination a.current').attr('data-num');
             if(num == 'prev'){
-                getIndexArticle( (current/8) - 1);
+                getIndexArticle( (current*8) - 1);
             }else if(num == 'next'){
-                getIndexArticle( (current/8) + 1);
+                getIndexArticle( (current*8) + 1);
             }else{
-
+                getIndexArticle(num*8)
             }
         })
     })

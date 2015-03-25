@@ -30,9 +30,9 @@ function pagination(meta, doc) {
         }
         for (var i = start; i <= end; i++) {
             if(i == current){
-                doc.append('<a class="current" data-num="'+i+'"></a>')
+                doc.append('<a class="current" data-num="'+i+'">'+i+'</a>')
             }else{
-                doc.append('<a data-num="' + i + '"></a>')
+                doc.append('<a data-num="' + i + '">'+i+'</a>')
             }
         }
         if(current != total){
