@@ -38,7 +38,7 @@
                     type: $('#type').val(),
                     cover: (ue.getContent()).match(/images(.*?\.jpg)/g).join('').split('.')[0].split('/')[1],
                     summary: $('#summary').val(),
-                    release: $('#realease').is(':checked') ? 1 : 0
+                    release: $('#release').is(':checked') ? 1 : 0
                 },
                 success: function (data) {
                     alert(data);
