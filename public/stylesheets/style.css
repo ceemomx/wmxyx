@@ -80,21 +80,27 @@ body {
 }
 
 .body .body-content-title {
-    width: 740px;
+    width: 700px;
     text-align: center;
     padding-bottom: 25px;
     border-bottom: 1px solid #ccc;
 }
 
 .body .body-content-main {
-    width: 740px;
+    width: 700px;
     margin-top: 20px;
     line-height: 30px;
 }
 
 .body .body-content-list {
-    width: 740px;
+    width: 700px;
 }
+.body .banner{width:700px;max-height:260px;}
+.body .banner ul{height:260px;}
+.body .banner ul li{height:260px;}
+.body .banner ul li a{display:block;width:700px;height:260px;position:relative;}
+.body .banner ul li a p{position:absolute;left:0;bottom:0;text-indent:1em;height:35px;width:100%;line-height: 35px;background:rgba(0,0,0,0.8);color:#fff;}
+.body .banner ul li img{width:700px;height:260px;}
 
 .body .body-content ul.list-content li {
     height: 150px;
@@ -141,7 +147,7 @@ body {
 
 .body .body-content .body-content-pagination {
     margin-top: 20px;
-    width:740px;
+    width:700px;
     text-align: center;
 }
 

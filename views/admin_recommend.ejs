@@ -1,0 +1,164 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>未解之谜</title>
+    <link rel='stylesheet' href='/stylesheets/admin.css'/>
+    <script src="../javascripts/jquery.js"></script>
+</head>
+<body>
+<a id="add_btn" class="button">添加</a>
+<table class="admin_table">
+    <thead>
+    <tr>
+        <th>id</th>
+        <th>标题</th>
+        <th>权重</th>
+        <th>类型</th>
+        <th>是否发布</th>
+        <th>操作</th>
+    </tr>
+    </thead>
+    <tbody id="table_list">
+
+    <% list.forEach(function(item){ %>
+    <tr>
+        <td><%= item._id %></td>
+        <td><%= item.title %></td>
+        <td><%= item.weight %></td>
+        <td><%= item.type %></td>
+        <td><%= item.release %></td>
+        <td><a>编辑</a></td>
+    </tr>
+    <% }) %>
+
+    </tbody>
+</table>
+<div class="modal" id="add">
+    <div>
+        <a class="close">X</a>
+    </div>
+    <div>
+        <div>
+            <input type="text" id="add_title" placeholder="标题">
+        </div>
+        <div>
+            <input type="text" id="add_describe" placeholder="描述">
+        </div>
+        <div>
+            <input type="text" id="add_url" placeholder="链接">
+        </div>
+        <div>
+            <input type="text" id="add_weight" placeholder="权重">
+        </div>
+        <div>
+            <form>
+                <input type="file" id="add_img" name="image"><span id="add_tips">选择图片</span>
+            </form>
+        </div>
+        <div>
+            <input type="text" disabled="disabled" placeholder="图片ID" id="add_imgID">
+        </div>
+        <div>类型
+            <select id="add_type">
+                <option value="slider">首页轮播</option>
+            </select>
+        </div>
+        <div>
+            <input type="checkbox" id="add_release">是否发布
+        </div>
+        <div>
+            <img src="" id="add_img_prev">
+        </div>
+    </div>
+    <div>
+        <a class="" id="add_submit">提交</a>
+    </div>
+</div>
+</body>
+<script type="text/javascript">
+    $(function(){
+        var input = document.getElementById("add_img");
+        var formdata;
+
+        function showUploadedItem(source) {
+            var img = document.getElementById("add_img_prev");
+            img.src = source;
+        }
+
+        if (window.FormData) {
+            formdata = new FormData();
+        }
+
+        addEvent(input, 'change', function (evt) {
+            var i = 0, len = this.files.length, img, reader, file;
+
+            for (; i < len; i++) {
+                file = this.files[i];
+
+                if (!!file.type.match(/image.*/)) {
+                    if (window.FileReader) {
+                        reader = new FileReader();
+                        reader.onloadend = function (e) {
+                            showUploadedItem(e.target.result);
+                        };
+                        reader.readAsDataURL(file);
+                    }
+                    if (formdata) {
+                        formdata = new FormData();
+                        formdata.append("images", file);
+                    }
+
+                }
+            }
+            if (input.files.length != -1 || input.files.length != 0) {
+                document.getElementById("add_tips").innerHTML = "上传中...";
+                if (formdata) {
+                    $.ajax({
+                        url: "/file/upload",
+                        type: "POST",
+                        data: formdata,
+                        processData: false,
+                        contentType: false,
+                        success: function (data) {
+                            if (data.status == '1') {
+                                document.getElementById("add_tips").innerHTML = '上传成功';
+                                $('#add_imgID').val(data.id);
+                            } else {
+                                document.getElementById("add_tips").innerHTML = '上传失败';
+                            }
+
+                        }
+                    });
+                }
+            }
+
+        }, false);
+        $('#add_submit').click(function(){
+            var data = {
+                title:$('#add_title').val(),
+                describe:$('#add_describe').val(),
+                url: $('#add_url').val(),
+                type: $('#add_type').val(),
+                img:$('#add_imgID').val(),
+                weight:$('#add_weight').val(),
+                release:$('#add_release').is(':checked') ? 1 : 0
+            };
+            $.ajax({
+                url:'/admin/add_recommend',
+                type:'POST',
+                data:data,
+                success:function(data){
+                    if(data.status == 1){
+                        alert('成功');
+                        location.reload();
+                    }else{
+                        alert('失败')
+                    }
+                }
+            })
+        })
+    });
+
+
+</script>
+</html>

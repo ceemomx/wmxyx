@@ -6,7 +6,7 @@ a{cursor:pointer}
 .admin_left_menu li a{display:block;width:150px;height:30px;line-height: 30px;border-bottom:1px solid #ccc;}
 .admin_right{margin-left:180px;height:100%;padding-top:15px;}
 .admin_right iframe{height:100%;width:100%;border:0}
-.admin_table{width:100%;text-align: center;border-collapse:collapse}
+.admin_table{width:100%;text-align: center;border-collapse:collapse;margin-top:15px;}
 .admin_table tr{border:1px solid #999}
 .admin_table th,.admin_table td{border:1px solid #999}
 .admin_table td a{display:inline-block;margin:0 8px;}
@@ -14,3 +14,9 @@ a{cursor:pointer}
 #summary{height:75px;width:400px;line-height: 25px;}
 .line{margin:5px;}
 button{width:50px;height:20px;line-height: 20px;}
+.button{min-width:60px;height:20px;line-height: 30px;padding:5px;border:1px solid #ccc;margin:5px 10px;border-radius:5px;background:#468847;color:#fff;}
+.modal{display:none;position:fixed;width:450px;height:550px;padding:25px;top:50%;margin-top:-300px;left:50%;margin-left:-250px;background:#fff;border:1px solid #ccc;box-shadow:1px 2px 3px rgba(150,150,150,0.5);}
+.modal div{height:30px;line-height: 30px;}
+.modal div input[type=text]{width:230px;}
+.modal .close{float:right;}
+
