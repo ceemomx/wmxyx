@@ -96,12 +96,15 @@ body {
     width: 700px;
     margin-top:30px;
 }
-.body .banner{width:700px;max-height:260px;}
+.body .banner{width:700px;max-height:260px;position:relative;}
 .body .banner ul{height:260px;}
 .body .banner ul li{height:260px;}
 .body .banner ul li a{display:block;width:700px;height:260px;position:relative;}
 .body .banner ul li a p{position:absolute;left:0;bottom:0;text-indent:1em;height:35px;width:100%;line-height: 35px;background:rgba(0,0,0,0.8);color:#fff;}
 .body .banner ul li img{width:700px;height:260px;}
+.body .banner ol {position:absolute;bottom:0;right:0;}
+.body .banner ol li{height:5px;width:5px;display:block;float:left;background:#fff;margin:0 5px;overflow:hidden;color:#fff;border-radius:5px;}
+.body .banner ol li.active{height:4px;width:4px;border:1px solid #fff;background:#000;}
 
 .body .body-content ul.list-content li {
     height: 150px;
