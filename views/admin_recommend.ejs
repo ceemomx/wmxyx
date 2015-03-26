@@ -37,61 +37,63 @@
     <div>
         <a class="close">X</a>
     </div>
-        <div>
-            <input type="text" id="add_title" placeholder="标题">
-        </div>
-        <div>
-            <input type="text" id="add_describe" placeholder="描述">
-        </div>
-        <div>
-            <input type="text" id="add_url" placeholder="链接">
-        </div>
-        <div>
-            <input type="text" id="add_weight" placeholder="权重">
-        </div>
-        <div>
-            <form>
-                <input type="file" id="add_img" name="image"><span id="add_tips">选择图片</span>
-            </form>
-        </div>
-        <div>
-            <input type="text" disabled="disabled" placeholder="图片ID" id="add_imgID">
-        </div>
-        <div>类型
-            <select id="add_type">
-                <option value="slider">首页轮播</option>
-            </select>
-        </div>
-        <div>
-            <input type="checkbox" id="add_release">是否发布
-        </div>
-        <div>
-            <img src="" id="add_img_prev">
-        </div>
+    <div>
+        <input type="text" id="add_title" placeholder="标题">
+    </div>
+    <div>
+        <input type="text" id="add_describe" placeholder="描述">
+    </div>
+    <div>
+        <input type="text" id="add_url" placeholder="链接">
+    </div>
+    <div>
+        <input type="text" id="add_weight" placeholder="权重">
+    </div>
+    <div>
+        <form>
+            <input type="file" id="add_img" name="image"><span id="add_tips">选择图片</span>
+        </form>
+    </div>
+    <div>
+        <input type="text" disabled="disabled" placeholder="图片ID" id="add_imgID">
+    </div>
+    <div>类型
+        <select id="add_type">
+            <option value="slider">首页轮播</option>
+        </select>
+    </div>
+    <div>
+        <input type="checkbox" id="add_release">是否发布
+    </div>
     <div>
         <a class="" id="add_submit">提交</a>
     </div>
+    <div>
+        <img src="" id="add_img_prev">
+    </div>
+
 </div>
 </body>
 <script type="text/javascript">
-    $(function(){
-        function addEvent(obj,sEv,fn){//sEv 函数名
-            if(obj.addEventListener){//不兼容IE678
-                obj.addEventListener(sEv,function(ev){
-                    if(false == fn.call(obj,ev)){
+    $(function () {
+        function addEvent(obj, sEv, fn) {//sEv 函数名
+            if (obj.addEventListener) {//不兼容IE678
+                obj.addEventListener(sEv, function (ev) {
+                    if (false == fn.call(obj, ev)) {
                         ev.cancelBubble = true;//阻止冒泡
                         ev.preventDefault();//取消事件的默认事件
                     }
-                },false);
-            }else{
-                obj.attachEvent('on' + sEv,function(){
-                    if(false == fn.call(obj,event)){
+                }, false);
+            } else {
+                obj.attachEvent('on' + sEv, function () {
+                    if (false == fn.call(obj, event)) {
                         event.cancelBubble = true;
                         return false;
                     }
                 });
             }
         }
+
         var input = document.getElementById("add_img");
         var formdata;
 
@@ -148,31 +150,31 @@
             }
 
         }, false);
-        $('#add_submit').click(function(){
+        $('#add_submit').click(function () {
             var data = {
-                title:$('#add_title').val(),
-                describe:$('#add_describe').val(),
+                title: $('#add_title').val(),
+                describe: $('#add_describe').val(),
                 url: $('#add_url').val(),
                 type: $('#add_type').val(),
-                img:$('#add_imgID').val(),
-                weight:$('#add_weight').val(),
-                release:$('#add_release').is(':checked') ? 1 : 0
+                img: $('#add_imgID').val(),
+                weight: $('#add_weight').val(),
+                release: $('#add_release').is(':checked') ? 1 : 0
             };
             $.ajax({
-                url:'/admin/add_recommend',
-                type:'POST',
-                data:data,
-                success:function(data){
-                    if(data.status == 1){
+                url: '/admin/add_recommend',
+                type: 'POST',
+                data: data,
+                success: function (data) {
+                    if (data.status == 1) {
                         alert('成功');
                         location.reload();
-                    }else{
+                    } else {
                         alert('失败')
                     }
                 }
             })
         });
-        $('#add_btn').click(function(){
+        $('#add_btn').click(function () {
             $('#add').show();
         })
     });
