@@ -130,6 +130,7 @@
             if (input.files.length != -1 || input.files.length != 0) {
                 document.getElementById("add_tips").innerHTML = "上传中...";
                 if (formdata) {
+                    console.log(formdata);
                     $.ajax({
                         url: "/file/upload",
                         type: "POST",
