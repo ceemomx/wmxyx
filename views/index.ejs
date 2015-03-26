@@ -13,7 +13,7 @@
 <div class="body">
     <div class="body-content">
         <div class="banner">
-            <ul>
+            <ul id="slider">
                 <li><a href="www.z2z.me"><img src="http://imgout.ph.126.net/34827131/C1F7C4EA.jpg"><p>欢迎光临</p></a></li>
                 <li>This is another slide.</li>
                 <li>This is a final slide.</li>
@@ -69,6 +69,16 @@
             }
         });
         $('.banner').unslider();
+        $.ajax({
+            url:'/recommend/slider',
+            type:'get',
+            success:function(data){
+                $('#slider').html('');
+                data.forEach(function(item){
+                   $('#slider').append('<li><a href="'+item.url+'" target="_blank"><img src="/file/image/'+item.img+'"><p>'+item.title+'</p></a></li>')
+                });
+            }
+        })
     })
 </script>
 </html>

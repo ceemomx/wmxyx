@@ -2,6 +2,7 @@ var indexPageRouter = require('../lib/main/router');
 var adminPageRouter = require('../lib/admin/router');
 var articlePageRouter = require('../lib/article/router');
 var fileRouter = require('../lib/file/router');
+var recommendRouter = require('../lib/recommend/router');
 var path = require('path');
 var ueditor = require("ueditor");
 
@@ -11,6 +12,7 @@ module.exports = function(app){
     app.use('/admin', adminPageRouter);
     app.use('/article', articlePageRouter);
     app.use('/file', fileRouter);
+    app.use('/recommend', recommendRouter);
     app.use('/ueditor/file/action', ueditor(path.join(__dirname, '../public'), function(req, res, next) {
         // ueditor 客户发起上传图片请求
         if (req.query.action === 'uploadimage') {
