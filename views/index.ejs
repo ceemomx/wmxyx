@@ -66,7 +66,7 @@
                 getIndexArticle((num-1) * 8)
             }
         });
-        $('.banner').unslider();
+
         $.ajax({
             url:'/recommend/slider',
             type:'get',
@@ -75,6 +75,7 @@
                 data.forEach(function(item){
                    $('#slider').append('<li><a href="'+item.url+'" target="_blank"><img src="/file/image/'+item.img+'"><p>'+item.title+'</p></a></li>')
                 });
+                $('.banner').unslider();
             }
         })
     })
