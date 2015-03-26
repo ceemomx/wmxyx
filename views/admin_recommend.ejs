@@ -77,6 +77,23 @@
 </body>
 <script type="text/javascript">
     $(function(){
+        function addEvent(obj,sEv,fn){//sEv 函数名
+            if(obj.addEventListener){//不兼容IE678
+                obj.addEventListener(sEv,function(ev){
+                    if(false == fn.call(obj,ev)){
+                        ev.cancelBubble = true;//阻止冒泡
+                        ev.preventDefault();//取消事件的默认事件
+                    }
+                },false);
+            }else{
+                obj.attachEvent('on' + sEv,function(){
+                    if(false == fn.call(obj,event)){
+                        event.cancelBubble = true;
+                        return false;
+                    }
+                });
+            }
+        }
         var input = document.getElementById("add_img");
         var formdata;
 
