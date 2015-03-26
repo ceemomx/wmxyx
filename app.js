@@ -4,6 +4,8 @@ var favicon = require('serve-favicon');
 var logger = require('morgan');
 var cookieParser = require('cookie-parser');
 var bodyParser = require('body-parser');
+var multer = require('multer');
+
 
 var routes = require('./routes/index');
 
@@ -16,7 +18,8 @@ app.set('view engine', 'ejs');
 // uncomment after placing your favicon in /public
 //app.use(favicon(__dirname + '/public/favicon.ico'));
 app.use(logger('dev'));
-app.use(bodyParser.urlencoded({ extended: true,uploadDir: '/tmp' }));
+app.use(bodyParser.urlencoded({ extended: true}));
+app.use(multer({dest: "./public/images"}))
 app.use(bodyParser.json());
 app.use(cookieParser());
 app.use(express.static(path.join(__dirname, 'public')));
