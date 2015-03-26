@@ -94,6 +94,7 @@ body {
 
 .body .body-content-list {
     width: 700px;
+    margin-top:30px;
 }
 .body .banner{width:700px;max-height:260px;}
 .body .banner ul{height:260px;}
