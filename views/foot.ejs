@@ -10,10 +10,8 @@
             $.ajax({
                 url: '/recommend/rank',
                 type: 'get',
-                data: {type: type}
-                success: function(data){
-                    callback(data);
-                }
+                data: {type: type},
+                success: callback
             })
         }
 
