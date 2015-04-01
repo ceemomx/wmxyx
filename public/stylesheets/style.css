@@ -292,7 +292,9 @@ body {
     margin-left:10px;line-height: 20px;
     width:190px;
 }
-
+.message{
+    width:700px;
+}
 .footer {
     height: 100px;
 }
