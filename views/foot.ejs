@@ -11,7 +11,9 @@
                 url: '/recommend/rank',
                 type: 'get',
                 data: {type: type}
-                success: callback
+                success: function(data){
+                    callback(data);
+                }
             })
         }
 
