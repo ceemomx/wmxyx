@@ -1,5 +1,42 @@
 <script>
-    $(function(){
-        $('.nav-content a[href="'+location.pathname+'"]').addClass('selected');
+    $(function () {
+        $('.nav-content a[href="' + location.pathname + '"]').addClass('selected');
+        $('.body-content-rank ul').eq($('.rank-nav a.selected').index()).show();
+        $('.rank-nav a').click(function () {
+            $(this).addClass('selected').siblings().removeClass('selected');
+            $('.body-content-rank ul').eq($(this).index()).show().siblings('ul').hide();
+        });
+        function getRankList(type, callback) {
+            $.ajax({
+                url: '/recommend/rank',
+                type: 'get',
+                data: {type: type}
+                success: callback
+            })
+        }
+
+        getRankList('new', function (data) {
+            $('#new').html('');
+            data.list.forEach(function (item) {
+                $('#new').append('<li>\
+                        <a href="/article/info/' + item._id + '" target="_blank">\
+                        <img src="/upload/images/' + item.cover + '.jpg">\
+                        <p>' + item.title + '</p>\
+                </a>\
+                </li>')
+            })
+        });
+        getRankList('hot', function (data) {
+            $('#hot').html('');
+            data.list.forEach(function (item) {
+                $('#hot').append('<li>\
+                        <a href="/article/info/' + item._id + '" target="_blank">\
+                        <img src="/upload/images/' + item.cover + '.jpg">\
+                        <p>' + item.title + '</p>\
+                </a>\
+                </li>')
+            })
+        });
+
     })
 </script>
