@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html>
 <head>
-    <meta name="ujianVerification" content="e1fbfb0c2d8a419a8a1a6831e8c863c0" />
+    <meta name="ujianVerification" content="e1fbfb0c2d8a419a8a1a6831e8c863c0"/>
     <title>未解之谜</title>
     <link rel='stylesheet' href='/stylesheets/style.css'/>
     <script src="./javascripts/jquery.js" type="text/javascript"></script>
@@ -27,7 +27,7 @@
 
         </div>
         <div class="body-content-rank">
-            <% include rank.ejs%>
+            <% include rank.ejs %>
         </div>
     </div>
 </div>
@@ -52,6 +52,7 @@
                     <h3>' + item.title + '</h3>\
             </a>\
             <p>' + item.summary + '</p>\
+            <div class="article-infos">添加时间:'+(new Date(item.created)).getFullYear()+'-'+((new Date(item.created)).getMonth()+1)+'-'+(new Date(item.created)).getDate()+'     <span>热度:'+item.visitedCount+'</span></div>\
             </div>\
             </li>')
                 });
@@ -67,17 +68,17 @@
             } else if (num == 'next') {
                 getIndexArticle(current * 8);
             } else {
-                getIndexArticle((num-1) * 8)
+                getIndexArticle((num - 1) * 8)
             }
         });
 
         $.ajax({
-            url:'/recommend/slider',
-            type:'get',
-            success:function(data){
+            url: '/recommend/slider',
+            type: 'get',
+            success: function (data) {
                 $('#slider').html('');
-                data.forEach(function(item){
-                   $('#slider').append('<li><a href="'+item.url+'" target="_blank"><img src="/file/image/'+item.img+'"><p>'+item.title+'</p></a></li>')
+                data.forEach(function (item) {
+                    $('#slider').append('<li><a href="' + item.url + '" target="_blank"><img src="/file/image/' + item.img + '"><p>' + item.title + '</p></a></li>')
                 });
                 $('.banner').unslider({
                     speed: 500,
