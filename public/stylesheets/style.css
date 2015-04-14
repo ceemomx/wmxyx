@@ -81,25 +81,25 @@ body {
 }
 
 .body .body-content-title {
-    width: 730px;
+    width: 728px;
     text-align: center;
     padding-bottom: 25px;
     border-bottom: 1px solid #ccc;
 }
 
 .body .body-content-main {
-    width: 730px;
+    width: 728px;
     margin-top: 20px;
     line-height: 30px;
 }
 
 .body .body-content-list {
-    width: 730px;
+    width: 728px;
     margin-top: 30px;
 }
 
 .body .banner {
-    width: 700px;
+    width: 728px;
     max-height: 260px;
     position: relative;
 }
@@ -114,7 +114,7 @@ body {
 
 .body .banner ul li a {
     display: block;
-    width: 700px;
+    width: 728px;
     height: 260px;
     position: relative;
 }
@@ -132,7 +132,7 @@ body {
 }
 
 .body .banner ul li img {
-    width: 700px;
+    width: 728px;
     height: 260px;
 }
 
@@ -187,7 +187,7 @@ body {
 }
 
 .body .body-content .body-content-list .body-content-list-right {
-    width: 485px;
+    width: 495px;
     margin-left: 215px;
     height: 140px;
 }
@@ -303,10 +303,10 @@ body {
     width:190px;
 }
 .message{
-    width:700px;
+    width:728px;
 }
 .ujian-hook{
-    width:700px;
+    width:728px;
 }
 .footer {
     height: 100px;
