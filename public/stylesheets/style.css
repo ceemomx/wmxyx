@@ -187,7 +187,7 @@ body {
 }
 
 .body .body-content .body-content-list .body-content-list-right {
-    width: 495px;
+    width: 500px;
     margin-left: 215px;
     height: 140px;
 }
@@ -218,7 +218,7 @@ body {
 
 .body .body-content .body-content-pagination {
     margin-top: 20px;
-    width: 700px;
+    width: 728px;
     text-align: center;
 }
 
@@ -248,7 +248,7 @@ body {
     position: absolute;
     right: 0;
     top: 0;
-    width: 260px;
+    width: 250px;
 }
 .body .body-content .body-content-rank .rank-title {
     line-height: 30px;
@@ -300,7 +300,7 @@ body {
 .body .body-content .body-content-rank ul li a p{
     float:left;
     margin-left:10px;line-height: 20px;
-    width:190px;
+    width:180px;
 }
 .message{
     width:728px;
